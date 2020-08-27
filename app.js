@@ -16,7 +16,7 @@ const theTEAM = [];
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-function beginHere(){
+function init(){
     inquirer
     .prompt([
         {
@@ -81,6 +81,8 @@ function managerSelection(){
 
         theTEAM.push(manager);
 
+        init();
+
     })
 }
 
@@ -110,10 +112,14 @@ function engineerSelection(){
             message: "What is the engineer's GitHub username? "
         }
     ]).then(function(response){
+
+        console.log("Engineer data: ", response);
         
         const engineer = new Engineer(response.name, response.id, response.email, response.username);
 
         theTEAM.push(engineer);
+
+        init();
 
     })
 
@@ -146,15 +152,21 @@ function internSelection(){
         }
     ]).then(function(response){
 
+        console.log("Intern data: ", response);
+
         const intern = new Intern(response.name, response.id, response.email, response.school);
 
         theTEAM.push(intern);
+
+
+
+        init();
 
     })
 
 }
 
-beginHere();
+init();
 
 
 
