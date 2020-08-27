@@ -11,9 +11,150 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 
+const theTEAM = [];
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+function beginHere(){
+    inquirer
+    .prompt([
+        {
+            type: "list",
+            name: "selectPosition",
+            message: "Select position you're inputting for: ",
+            choices: ["Manager", "Engineer", "Intern"]
+        }
+    ]).then(function(response){
+
+        console.log("Position selected: ", response.selectPosition);
+        
+
+        if(response.selectPosition === "Manager"){
+            console.log("manager has been chosen");
+            managerSelection();
+
+        }
+        else if(response.selectPosition === "Engineer"){
+            console.log("engineer has been chosen");
+            engineerSelection();
+
+        }
+        else if(response.selectPosition === "Intern"){
+            console.log("intern has been chosen");
+            internSelection();
+
+        }
+    })
+}
+
+
+function managerSelection(){
+    console.log("entered manager function");
+    return inquirer
+    .prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is the name of the manager?" 
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "What is the manager's id? "
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is the manager's email? "
+        },
+        {
+            type: "input",
+            name: "phoneNumber",
+            message: "Enter office number where one can reach the manager: "
+        },
+    ]).then(function(response){
+    
+        console.log("Manager data: ", response);
+
+        const manager = new Manager(response.name, response.id, response.email, response.phoneNumber);
+
+        theTEAM.push(manager);
+
+    })
+}
+
+
+function engineerSelection(){
+    console.log("entered engineer function");
+    return inquirer
+    .prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is the name of the engineer? "
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "What is the engineer's id? "
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is the engineer's email? "
+        },
+        {
+            type: "input",
+            name: "username",
+            message: "What is the engineer's GitHub username? "
+        }
+    ]).then(function(response){
+        
+        const engineer = new Engineer(response.name, response.id, response.email, response.username);
+
+        theTEAM.push(engineer);
+
+    })
+
+}
+
+
+function internSelection(){
+    console.log("entered intern function");
+    return inquirer
+    .prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is the name of the intern? "
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "What is the intern's id? "
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is the intern's email? "
+        },
+        {
+            type: "input",
+            name: "school",
+            message: "What school does the intern attend? "
+        }
+    ]).then(function(response){
+
+        const intern = new Intern(response.name, response.id, response.email, response.school);
+
+        theTEAM.push(intern);
+
+    })
+
+}
+
+beginHere();
 
 
 
