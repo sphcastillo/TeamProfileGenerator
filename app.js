@@ -23,7 +23,7 @@ function init(){
             type: "list",
             name: "selectPosition",
             message: "Select position you're inputting for: ",
-            choices: ["Manager", "Engineer", "Intern"]
+            choices: ["Manager", "Engineer", "Intern", "Show Team"]
         }
     ]).then(function(response){
 
@@ -44,6 +44,18 @@ function init(){
             console.log("intern has been chosen");
             internSelection();
 
+        }
+
+        else if(response.selectPosition=== "Show Team"){
+
+            console.log("Let's display the team!");
+            
+            fs.writeFile(outputPath,render(theTEAM), function(error){
+                if(error) throw error;
+                console.log("Congratulations! Checkout the employee summary");
+            })
+        
+        
         }
     })
 }
@@ -167,6 +179,8 @@ function internSelection(){
 }
 
 init();
+
+
 
 
 
