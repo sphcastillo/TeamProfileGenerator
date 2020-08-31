@@ -14,11 +14,9 @@ Check out video sample of application: https://youtu.be/sP3dSGEATmM
 
 
 
-![alt tag](Assets/Screen Shot 2020-08-28 at 1.35.08 AM.png)
-![Screenshot](Assets/Screen Shot 2020-08-28 at 1.35.15 AM.png)
-![picture](Assets/Screen Shot 2020-08-28 at 1.35.26 AM.png)
-
-
+<img src="Assets/Screen Shot 2020-08-28 at 1.35.08 AM.png"/>
+<img src="Assets/Screen Shot 2020-08-28 at 1.35.15 AM.png"/>
+<img src="Assets/Screen Shot 2020-08-28 at 1.35.26 AM.png"/>
 
 
 
